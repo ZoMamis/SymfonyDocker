@@ -59,7 +59,6 @@ composer:
 	@echo "$(YELLOW)📝 Création du fichier .env...$(NC)"
 	docker-compose exec php sh -c 'if [ ! -f .env ]; then \
 		echo "APP_ENV=dev" > .env; \
-		echo "APP_SECRET=$(php -r \"echo bin2hex(random_bytes(16));\")" >> .env; \
 		echo "DATABASE_URL=\"mysql://symfony:symfony@database:3306/symfony_db?serverVersion=8.0\"" >> .env; \
 	fi'
 	docker-compose exec php composer install
